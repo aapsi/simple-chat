@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+echo "Running cargo fmt check..."
+cargo fmt --all -- --check
+
+echo "Running cargo clippy..."
+cargo clippy --all -- -D warnings
+
+echo "Running tests..."
+cargo test --all
+
+echo "All checks passed."
